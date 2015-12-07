@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ EncodingTest.class, LoadDictionaryTest.class })
+@SuiteClasses({ NumberEncoderTest.class, LoadDictionaryTest.class })
 public class AllTests {
 
 }

@@ -1,42 +1,42 @@
 package app.numberencoding.models;
 
-
-
 import java.util.List;
-
-import app.numberencoding.util.Constants;
 
 /**
  * 
  * Class representation of the result
+ * 
+ * @author Sergey Ogarkov
  *
  */
 public class Result {
-	
+
+	public static final String SPACE = " ";
+	public static final String SEPARATOR = ": ";
+
 	public String number;
 	public String words;
-		
+
 	public Result(String number, String words) {
 		super();
 		this.number = number.trim();
 		this.words = words.trim();
 	}
-	
-	public Result(List<Item> encoding) {
+
+	public Result(List<Word> encoding) {
 		this.number = encoding.get(0).getOriginal();
 		StringBuffer sb = new StringBuffer();
 		int pos = 0;
-		for(Item word : encoding) {
-			if(pos > 0) {
-				sb.append(word.getOriginal()).append(Constants.SPACE);
+		for (Word word : encoding) {
+			if (pos > 0) {
+				sb.append(word.getOriginal()).append(SPACE);
 			}
 			pos++;
-		}		
+		}
 		this.words = sb.toString().trim();
-		
+
 	}
-	
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -45,8 +45,6 @@ public class Result {
 		result = prime * result + ((words == null) ? 0 : words.hashCode());
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -70,10 +68,8 @@ public class Result {
 		return true;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return  number+Constants.SEPARATOR+words;
-	}		
+		return number + SEPARATOR + words;
+	}
 }
